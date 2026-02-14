@@ -89,22 +89,12 @@ def supprimer_tickets():
     
     cursor = connection.cursor()
     query = "delete from tickets where id_ticket = %s"
-    cursor.execute(query)
+    cursor.execute(query, (id_ticket,))
     connection.commit()
     print(f"{id_ticket} est bien supprimer")
     choix_menu()
 
     cursor.close()
-
-#=============================================SUPPRIMER UTILISATEURS=================================================
-def supprimer_user():
-    id_user = input('Entrez id utilisateur que tu veux supprimer:')
-    cursor = connection.cursor()
-    query = 'delete from utilisateurs where id_user = %s'
-    cursor.execute(query, (id_user,))
-    connection.commit()
-    print(f"{id_user} est bien supprimer !")
-
 
 #============================================SUPPRIMER TICKET USE=====================================================
 
